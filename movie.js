@@ -1,7 +1,3 @@
-console.log("inside fucntions.js");
-errorMessage = document.getElementById("errorMessage");
-chatText = "chatTranscript.lines";
-console.log(chatText);
 
 var updateCallback = function(data){
     var value = data.newValue;
@@ -37,11 +33,11 @@ var notifyWhenDone = function(error) {
     if (err){
         console.log("Error Occured in notify : "+err);
     }
-    var chatText = "chatTranscript.lines";
+    
     errorMessage.innerHTML = "Unable to find the movie";
 };
 
- 
+var chatText = "sample"; 
 
 lpTag.agentSDK.init({});
 lpTag.agentSDK.bind(chatText, updateCallback, notifyWhenDone);
