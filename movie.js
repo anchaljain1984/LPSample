@@ -1,3 +1,7 @@
+console.log("inside fucntions.js");
+errorMessage = document.getElementById("errorMessage");
+chatText = "chatTranscript.lines";
+console.log(chatText);
 
 var updateCallback = function(data){
     var value = data.newValue;
