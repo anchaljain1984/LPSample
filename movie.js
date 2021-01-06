@@ -12,10 +12,8 @@ var updateCallback = function(data){
     var line = value[value.length -1];
     console.log("line : "+line);
     var movieName = line.text;
-    console.log("after movieName");
-    console.log("moviename : "+movieName);
     if (line.source.toLowerCase()==="visitor"){
-        var url = "https://www.omdbapi.com?t="+movieName+"&apikey=3e626416";
+        var url = "https://www.omdbapi.com?t="+movieName+"&apikey=5b89d14e";
         fetch(url)
                 .then(function(response){
                     
@@ -30,7 +28,6 @@ var updateCallback = function(data){
  
 
                 }).catch(function(error){
-                    console.log("I am inside catch");
                     console.log("Error Message : "+error);
                 })
     }
@@ -40,7 +37,7 @@ var updateCallback = function(data){
 
 var notifyWhenDone = function(error) {
     if (err){
-        console.log("I am inside notifyWhenDone function : "+err);
+        console.log("Error Occured in notify : "+err);
     }
     var chatText = "chatTranscript.lines";
     errorMessage.innerHTML = "Unable to find the movie";
