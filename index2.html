@@ -17,7 +17,7 @@
           opts = {bind: {}};
           bindingEvent.forEach(function (eventName) {
             console.log("binding event" + eventName);
-            opts.bind[eventName] = {func: _onEvent(this)};
+            opts.bind[eventName] = function(_onEvent(this));
           });
           lpWidgetSDK = lpTag.LPWidgetSDK.init(opts);
         }.bind(this));
@@ -55,5 +55,5 @@
   </script>
     <button onclick="disposeWidget()">Click me</button>
   </body>
-  <
+
 </html>
