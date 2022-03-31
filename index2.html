@@ -24,6 +24,7 @@
         }.bind(this));
         function _onEvent(eventData) {
           console.log("onEvent" + eventData);
+           disposeWidget();
           if (eventData && widgetSDKAPI.events.MESSAGES === eventData.type) {
             var content = eventData.data.content || "";
             console.log("MESSAGES data: ", eventData);
@@ -54,6 +55,6 @@
         }
       })();
   </script>
-    <button onclick="disposeWidget()">Click me</button>
+    <button onclick="_onEvent(this)">Click me</button>
   </body>
 </html>
