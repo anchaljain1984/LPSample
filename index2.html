@@ -17,13 +17,12 @@
           opts = {bind: {}};
           bindingEvent.forEach(function (eventName) {
             console.log("binding event" + eventName);
-            opts.bind[eventName] = {func: _onEvent(this)};
+            opts.bind[eventName] = {func: _onEvent, context: this};
           });
           lpWidgetSDK = lpTag.LPWidgetSDK.init(opts);
         }.bind(this));
         function _onEvent(eventData) {
           console.log("onEvent" + eventData);
-           disposeWidget();
           if (eventData && widgetSDKAPI.events.MESSAGES === eventData.type) {
             var content = eventData.data.content || "";
             console.log("MESSAGES data: ", eventData);
@@ -36,9 +35,17 @@
           } else if (eventData && widgetSDKAPI.events.PARTICIPANTS === eventData.type) {
             console.log("PARTICIPANTS data: ", eventData );
           }
-       
+          sendNotification("Event received!");
         }
-        
+        function sendNotification(text) {
+          if (typeof text === "string") {
+            lpWidgetSDK.notify({content: text}, function (err) {
+              if (err) {
+                console.log("Error on sending notification from widget");
+              }
+            });
+          }
+        }
         function disposeWidget() {
           lpWidgetSDK.dispose(function (data) {
             contentonsole.log("bla");
@@ -46,6 +53,7 @@
         }
       })();
   </script>
-    <button onclick="_onEvent(this)">Click me</button>
+    <button onclick="disposeWidget()">Click me</button>
   </body>
+  <
 </html>
