@@ -5,7 +5,6 @@
   </head>
   <body>
     <h1>Test Widget</h1>
-    <button onclick="disposeWidget()">Click me</button>
     <script type="text/javascript">
       (function () {
         var lpWidgetSDK,
@@ -37,17 +36,9 @@
           } else if (eventData && widgetSDKAPI.events.PARTICIPANTS === eventData.type) {
             console.log("PARTICIPANTS data: ", eventData );
           }
-          sendNotification("Event received!");
+       
         }
-        function sendNotification(text) {
-          if (typeof text === "string") {
-            lpWidgetSDK.notify({content: text}, function (err) {
-              if (err) {
-                console.log("Error on sending notification from widget");
-              }
-            });
-          }
-        }
+        
         function disposeWidget() {
           lpWidgetSDK.dispose(function (data) {
             contentonsole.log("bla");
