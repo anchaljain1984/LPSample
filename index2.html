@@ -7,7 +7,7 @@
     <h1>Test Widget</h1>
     <script type="text/javascript">
       (function () {
-        var lpWidgetSDK= lpTag.LPWidgetSDK,
+        var lpWidgetSDK,
         widgetSDKAPI = lpTag.LPWidgetSDK.API;
         window.addEventListener("load", function () {
           console.log("loaded SDK");
@@ -17,7 +17,7 @@
           opts = {bind: {}};
           bindingEvent.forEach(function (eventName) {
             console.log("binding event" + eventName);
-            opts.bind[eventName] = function(_onEvent(this));
+            opts.bind[eventName] = {func: _onEvent, context: this};
           });
           lpWidgetSDK = lpTag.LPWidgetSDK.init(opts);
         }.bind(this));
@@ -53,7 +53,6 @@
         }
       })();
   </script>
-    <button onclick="disposeWidget()">Click me</button>
+      <button onclick="disposeWidget()">Click me</button>
   </body>
-
 </html>
