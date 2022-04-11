@@ -6,53 +6,17 @@
   <body>
     <h1>Test Widget</h1>
     <script type="text/javascript">
-      (function () {
-        var lpWidgetSDK,
-        widgetSDKAPI = lpTag.LPWidgetSDK.API;
-        window.addEventListener("load", function () {
-          console.log("loaded SDK");
+    function abc(){
 
-          var bindingEvent = [widgetSDKAPI.events.CONVERSATION_INFO,
-          widgetSDKAPI.events.MESSAGES, widgetSDKAPI.events.PARTICIPANTS],
-          opts = {bind: {}};
-          bindingEvent.forEach(function (eventName) {
-            console.log("binding event" + eventName);
-            opts.bind[eventName] = {func: _onEvent, context: this};
-          });
-          lpWidgetSDK = lpTag.LPWidgetSDK.init(opts);
-        }.bind(this));
-        function _onEvent(eventData) {
-          console.log("onEvent" + eventData);
-          if (eventData && widgetSDKAPI.events.MESSAGES === eventData.type) {
-            var content = eventData.data.content || "";
-            console.log("MESSAGES data: ", eventData);
+  var lpWidgetSDK = lpTag.LPWidgetSDK.init();
+  lpWidgetSDK.dispose(disposeCallback);
 
-            if (content.indexOf("disposeWidget") > -1) {
-              disposeWidget();
-            }
-          } else if (eventData && widgetSDKAPI.events.CONVERSATION_INFO === eventData.type) {
-            console.log("CONVERSATION_INFO data: ", eventData );
-          } else if (eventData && widgetSDKAPI.events.PARTICIPANTS === eventData.type) {
-            console.log("PARTICIPANTS data: ", eventData );
-          }
-          sendNotification("Event received!");
-        }
-        function sendNotification(text) {
-          if (typeof text === "string") {
-            lpWidgetSDK.notify({content: text}, function (err) {
-              if (err) {
-                console.log("Error on sending notification from widget");
-              }
-            });
-          }
-        }
-        function disposeWidget() {
-          lpWidgetSDK.dispose(function (data) {
-            contentonsole.log("bla");
-          });
-        }
-      })();
+  function disposeCallback(err) {
+    if (err) {
+        console.log("Error on widget disposal");
+
+    }
   </script>
-      <button onclick="disposeWidget()">Click me</button>
+      <button onclick="abc()">Click me</button>
   </body>
 </html>
