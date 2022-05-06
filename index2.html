@@ -14,9 +14,13 @@
 
       var mahavir = function mahavir(){
 console.log("Mahavir");
-        console.log($('.lpc_slider-header__minimize-button'));
+       // console.log($('.lpc_slider-header__minimize-button'));
 
-      $('.lpc_slider-header__minimize-button').click();
+    var el = window.parent.document.getElementsByClassName('lpc_slider-header__minimize-button')
+
+for (var i=0;i<el.length; i++) {
+    el[i].click();
+}
 }
      
   </script>
