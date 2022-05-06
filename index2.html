@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <script src="https://lpcdn.lpsnmedia.net/unifiedwindow/widgetSDK.min.js"></script>
     <script> var lpWidgetSDK = lpTag.LPWidgetSDK.init();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
   <body>
     <h1>Test Widget</h1>
@@ -12,13 +13,15 @@
     function mahavir() {
 
   
-  lpWidgetSDK.dispose(disposeCallback);
+  //lpWidgetSDK.dispose(disposeCallback);
 
-  function disposeCallback(err) {
-    if (err) {
-        console.log("Error on widget disposal"+err);
+ // function disposeCallback(err) {
+  //  if (err) {
+   //     console.log("Error on widget disposal"+err);
 
-    }}}
+  //  }}}
+       $( '.lp_minimize-left-slider-icon' ).click();
+    }
 
      
   </script>
