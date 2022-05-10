@@ -9,19 +9,32 @@
     <h1>Test Widget4</h1>
     <script>
       
-     
+      var mahavir = () => {
+
+  
+  lpWidgetSDK.dispose(disposeCallback);
+
+  function disposeCallback(err) {
+    if (err) {
+        console.log("Error on widget disposal"+err);
+
+    }}}
+
     
 
-      var mahavir = function mahavir(){
-console.log("Mahavir");
+      //var mahavir = function mahavir(){
+//console.log("Mahavir");
        // console.log($('.lpc_slider-header__minimize-button'));
 
-    var el = window.parent.document.getElementsByClassName('lpc_slider-header__minimize-button')
+  //  var el = window.parent.document.getElementsByClassName('lpc_slider-header__minimize-button')
 
-for (var i=0;i<el.length; i++) {
-    el[i].click();
-}
-}
+//for (var i=0;i<el.length; i++) {
+  //  el[i].click();
+//}
+        
+        
+        
+//}
      
   </script>
      <button id="demo" onclick="mahavir()">Click me</button>
