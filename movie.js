@@ -3,7 +3,8 @@ var updateCallback = function(data){
     var value = data.newValue;
     console.log("value : ");
     var line = value[value.length -1];
-  
+  var parsedText = JSON.stringify(line);
+    console.log("converted Text : "+parsedText);
     var movieName = line.text;
       console.log("line : "+movieName);
     if (line.source.toLowerCase()==="visitor"){
