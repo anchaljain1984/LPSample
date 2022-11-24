@@ -1,8 +1,7 @@
 
 var updateCallback = function(data){
     var value = data.newValue;
-    console.log("after value ");
-    console.log("value : "+value);
+    console.log("value : "+JSON.parse(value));
     var line = value[value.length -1];
     console.log("line : "+line);
     var movieName = line.text;
