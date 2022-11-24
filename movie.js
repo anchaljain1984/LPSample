@@ -1,9 +1,10 @@
 
 var updateCallback = function(data){
     var value = data.newValue;
-    console.log("value : "+JSON.parse(value));
+    console.log("value : ");
     var line = value[value.length -1];
-    console.log("line : "+line);
+    var parsed = JSON.parse(line);
+    console.log("line : "+parsed);
     var movieName = line.text;
     if (line.source.toLowerCase()==="visitor"){
         var url = "https://www.omdbapi.com?t="+movieName+"&apikey=5b89d14e";
