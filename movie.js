@@ -41,4 +41,12 @@ var notifyWhenDone = function(error) {
 var chatText = "chatTranscript.lines"; 
 
 lpTag.agentSDK.init({});
+var test1 = function(){
 lpTag.agentSDK.bind(chatText, updateCallback, notifyWhenDone);
+    console.log("binding");
+}
+//lpTag.agentSDK.bind(chatText, updateCallback, notifyWhenDone);
+var test2 = function(){
+ lpTag.agentSDK.unbind(chatText, updateCallback, notifyWhenDone);  
+    console.log("unbinding");
+}
